@@ -85,8 +85,70 @@
 }
 
 .store {
-  height: 92vh;
-  background-color: red;
+  max-height: 92vh;
+  overflow-y: auto;
+  background-color: #eeee;
+  width: 100%;
+}
+
+.sectionStore {
+  background-color: white;
+  margin: 1rem;
+  justify-items: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+}
+
+.sectionStore img {
+  width: 100%;
+  border-radius: .4rem;
+  box-shadow: 2px 2px 5px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+.sectionStore__title {
+  margin: 1rem;
+  font-size: 3vh;
+  border-bottom: 1px solid grey;
+  justify-content: center;
+}
+
+.containerProductStore {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 0.6fr);
+  gap: 2vh;
+}
+
+.containerTargetItem {
+  width: 20vw;
+  height: 35vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: .4rem;
+  border: 1px solid black;
+  box-shadow: 2px 2px 5px 4px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  border-radius: .4rem;
+
+}
+
+.containerTargetItem h2 {
+  font-size: 2vh;
+  text-align: center;
+}
+
+.targetProps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
 }
 
 /* -- ASIDE -- */
