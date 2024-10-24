@@ -3,7 +3,7 @@
 - Comisión 3K10
 - Desarrollo de Software - UTN - FRM
 
-##Instrucciones
+## Instrucciones
 - Descargar el repositorio, abrir un CMD desde la carpeta donde se descomprima y ejecutar los siguientes comandos:
 ```
 npm install
