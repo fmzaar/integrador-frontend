@@ -1,4 +1,4 @@
-import { productoActivo, setProductoActivo } from "../../main";
+import { handleDeleteProduct, productoActivo, setProductoActivo } from "../../main";
 
 export const buttonCancel = document.getElementById("buttonCancel");
 buttonCancel.addEventListener("click", () => {
@@ -10,6 +10,12 @@ export const openModal = () => {
     const modal = document.getElementById("modalPopUp");
     modal.style.display = "flex";
     console.log("El producto es", productoActivo);
+    const buttonDelete = document.getElementById("buttonDelete");
+    if (productoActivo) {
+        buttonDelete.style.display = "block";
+    } else {
+        buttonDelete.style.display = "none";
+    }
     if (productoActivo) {
         const nombre = document.getElementById("inputName");
         const imagen = document.getElementById("inputImg");
@@ -41,3 +47,11 @@ export const resetModal = () => {
     category.value = "Seleccione una categoría";
 }
 
+const buttonDelete = document.getElementById("buttonDelete");
+buttonDelete.addEventListener("click", () => {
+    HandlebuttonDelete();
+});
+const HandlebuttonDelete = () => {
+    handleDeleteProduct();
+
+}
