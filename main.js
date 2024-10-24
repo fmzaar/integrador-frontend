@@ -1,5 +1,7 @@
 import { setInLocalStorage } from "./src/persistence/localstorage.js";
 import { renderCategories } from "./src/services/categories.js";
+import { handleSearchProductByName } from "./src/services/search.js";
+import { closeModal, openModal } from "./src/views/modal.js";
 import { handleGetProductsToStore } from "./src/views/store.js";
 import './style.css';
 
@@ -19,54 +21,20 @@ export const setProductoActivo = (productIn) => {
 };
 
 
-const buttonAdd = document.getElementById("buttonAddElement");
+const buttonSearch = document.getElementById("buttonSearch");
+buttonSearch.addEventListener("click", () => {
+  handleSearchProductByName();
+});
+
+const buttonAdd = document.getElementById("buttonAddElement")
 buttonAdd.addEventListener("click", () => {
+  console.log("Estoy en add");
   openModal();
 });
 
-// POPUP
-
-const buttonCancel = document.getElementById("buttonCancel");
-buttonCancel.addEventListener("click", () => {
-  closeModal();
-});
-
-export const openModal = () => {
-  const modal = document.getElementById("modalPopUp");
-  modal.style.display = "flex";
-  console.log("El producto es", productoActivo);
-  if (productoActivo) {
-    const nombre = document.getElementById("inputName");
-    const imagen = document.getElementById("inputImg");
-    const precio = document.getElementById("inputNumber");
-    const category = document.getElementById("categoria");
-    imagen.value = productoActivo.img;
-    precio.value = productoActivo.number;
-    nombre.value = productoActivo.name;
-    category.value = productoActivo.category;
-  }
-
-};
-
-export const closeModal = () => {
-  const modal = document.getElementById("modalPopUp");
-  modal.style.display = "none";
-  resetModal();
-};
-
-const resetModal = () => {
-  const nombre = document.getElementById("inputName");
-  const imagen = document.getElementById("inputImg");
-  const precio = document.getElementById("inputNumber");
-  const category = document.getElementById("categoria");
-  imagen.value = "";
-  precio.value = 0;
-  nombre.value = "";
-  category.value = "Seleccione una categoría";
-}
-
 const buttonSave = document.getElementById("buttonSave");
 buttonSave.addEventListener("click", () => {
+  console.log("Estoy en save");
   handleSaveOrModifyElements();
 });
 
@@ -98,3 +66,5 @@ const handleSaveOrModifyElements = () => {
   handleGetProductsToStore();
   closeModal();
 };
+
+
