@@ -4,7 +4,7 @@
 - Desarrollo de Software - UTN - FRM
 
 ##Instrucciones
-Descargar el repositorio, abrir un CMD desde la carpeta donde se descomprima y ejecutar los siguientes comandos:
+- Descargar el repositorio, abrir un CMD desde la carpeta donde se descomprima y ejecutar los siguientes comandos:
 ```
 npm install
 npm run dev
