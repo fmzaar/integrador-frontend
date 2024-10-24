@@ -11,6 +11,7 @@ export let categoriaActiva = null;
 export const setCategoriaActiva = (categoriaIn) => {
   categoriaActiva = categoriaIn;
 };
+
 export let productoActivo = null;
 
 export const setProductoActivo = (productIn) => {
@@ -33,15 +34,15 @@ buttonCancel.addEventListener("click", () => {
 export const openModal = () => {
   const modal = document.getElementById("modalPopUp");
   modal.style.display = "flex";
-
+  console.log("El producto es", productoActivo);
   if (productoActivo) {
     const nombre = document.getElementById("inputName");
     const imagen = document.getElementById("inputImg");
     const precio = document.getElementById("inputNumber");
     const category = document.getElementById("categoria");
-    nombre.value = productoActivo.nombre;
-    imagen.value = productoActivo.imagen;
-    precio.value = productoActivo.precio;
+    imagen.value = productoActivo.img;
+    precio.value = productoActivo.number;
+    nombre.value = productoActivo.name;
     category.value = productoActivo.category;
   }
 
@@ -77,41 +78,23 @@ const handleSaveOrModifyElements = () => {
   let object = null;
   if (productoActivo) {
     object = {
-      ...productoActivo,
-      nombre,
-      imagen,
-      precio,
-      category,
-    }
+      id: productoActivo.id,
+      name: nombre,
+      img: imagen,
+      number: precio,
+      category: category
+    };
   } else {
     object = {
       id: new Date().toISOString(),
-      nombre,
-      imagen,
-      precio,
-      category,
+      name: nombre,
+      img: imagen,
+      number: precio,
+      category: category
     };
   }
+
   setInLocalStorage(object);
   handleGetProductsToStore();
   closeModal();
 };
-
-/*const handleSaveOrModifyElements = () => {
-  const inputName = document.getElementById("inputName").value;
-  const inputImg = document.getElementById("inputImg").value;
-  const inputNumber = document.getElementById("inputNumber").value;
-  const categoria = document.getElementById("categoria").value;
-
-  let object = {
-    id: new Date().toISOString(),
-    name: inputName,
-    img: inputImg,
-    number: inputNumber,
-    category: categoria
-  };
-  setInLocalStorage(object);
-
-  handleGetProductsToStore();
-  closeModal();
-};*/

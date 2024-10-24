@@ -61,7 +61,6 @@ export const handleRenderList = (products) => {
                 productContainer.addEventListener("click", () => {
                     setProductoActivo(element);
                     openModal();
-                    console.log(element);
                 });
 
             });
